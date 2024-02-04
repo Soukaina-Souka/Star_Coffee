@@ -1,13 +1,19 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import App from './App';
 import reportWebVitals from './reportWebVitals';
+import { Provider } from 'react-redux';
+import { legacy_createStore } from 'redux';
+import reducerfi from './redux_v15/config/reducerfi';
+import AppF from './redux_v15/config/AppF';
 
+const store = legacy_createStore(reducerfi)
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <App />
+    <Provider store={store}>
+    <AppF/>
+    </Provider>
   </React.StrictMode>
 );
 
